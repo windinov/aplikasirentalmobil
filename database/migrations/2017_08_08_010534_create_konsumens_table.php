@@ -18,7 +18,7 @@ class CreateKonsumensTable extends Migration
             $table->string('nama');
             $table->string('jk');
             $table->string('no_hp');
-            $table->string('n0_identitas');
+            $table->string('no_identitas');
             $table->text('alamat');
             $table->timestamps();
         });

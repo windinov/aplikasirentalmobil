@@ -14,7 +14,7 @@ class KonsumenController extends Controller
     public function index()
     {
         $konsumen = konsumen::all();
-        return view('Konsumen.index', compact('konsumen'));
+        return view('konsumen.index', compact('konsumen'));
     }
 
     /**
@@ -24,7 +24,7 @@ class KonsumenController extends Controller
      */
     public function create()
     {
-        //
+       return view('konsumen.create');
     }
 
     /**
@@ -36,6 +36,14 @@ class KonsumenController extends Controller
     public function store(Request $request)
     {
         //
+        $konsumen = new konsumen;
+        $konsumen->nama = $request->a;
+        $konsumen->jk = $request->b;
+        $konsumen->no_hp = $request->c;
+        $konsumen->no_identitas = $request->d;
+        $konsumen->alamat = $request->e;
+        $konsumen->save();
+        return redirect('konsumen');
     }
 
     /**
@@ -47,6 +55,8 @@ class KonsumenController extends Controller
     public function show($id)
     {
         //
+        $konsumen = konsumen::findOrFail($id);
+        return view('konsumen.show', compact('konsumen'));
     }
 
     /**
@@ -58,6 +68,8 @@ class KonsumenController extends Controller
     public function edit($id)
     {
         //
+        $konsumen = konsumen::findOrFail($id);
+        return view('konsumen.edit', compact('konsumen'));
     }
 
     /**
@@ -70,6 +82,15 @@ class KonsumenController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $konsumen = konsumen::findOrFail($id);
+        $konsumen->nama = $request->a;
+        $konsumen->jk = $request->b;
+        $konsumen->no_hp = $request->c;
+        $konsumen->no_identitas = $request->d;
+        $konsumen->alamat = $request->e;
+        $konsumen->save();
+        return redirect('konsumen');
+
     }
 
     /**
@@ -81,5 +102,8 @@ class KonsumenController extends Controller
     public function destroy($id)
     {
         //
+        $konsumen = konsumen::findOrFail($id);
+        $konsumen->delete();
+        return redirect('konsumen');
     }
 }

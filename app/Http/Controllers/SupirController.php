@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Supir;
 
 class SupirController extends Controller
 {
@@ -13,7 +14,8 @@ class SupirController extends Controller
      */
     public function index()
     {
-        //
+        $Supir = Supir::all();
+        return view('Supir.index', compact('Supir'));
     }
 
     /**

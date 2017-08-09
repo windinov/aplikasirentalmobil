@@ -1,28 +1,56 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<ul class="breadcrumb">
-			<li><a href="{{ url('/home') }}">Dashboard</a></li>
-			<li class="active">Supir</li>
-			</ul>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h2 class="panel-title">Supir</h2>
-					</div>
-				
-				<div class="panel-body">
-				<p><a class="btn btn-primary" href="{{ route('authors.create') }}">Tambah</a></p>
-					{!! $html->table(['class'=>'table-striped']) !!}
-				</div>
-			</div>
-		</div>
+	<center><h1>Data Supir</h1></center>
+	<div class="panel panel-primary">
+	<div class="panel-heading">Data supir
+	<div class="panel-title pull-right"><a href="/supir/create">Tambah Data</a></div>
 	</div>
+<div class="panel-body">
+	<table class="table">
+	<thead>
+		<tr>
+			<th>foto</th>
+			<th>nama</th>
+			<th>jenis kelamin</th>
+			<th>no identitas</th>
+			<th>alamat</th>
+			<th>no hp</th>
+			<th>harga sewa</th>
+			<th colspan="3">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	@foreach($Supir as $data)
+	<tr>
+	<td>{{$data->foto}}</td>
+    <td>{{$data->nama}}</td>
+	<td>{{$data->jenis_kelamin}}</td>
+	<td>{{$data->no_identitas}}</td>
+	<td>{{$data->alamat}}</td>
+	<td>{{$data->no_hp}}</td>
+	<td>{{$data->harga_sewa}}</td>
+	
+	</td>
+	   <td>
+	   <a class="btn btn-warning" href="/supir/{{$data->id}}/edit">Edit</a>
+	   </td>
+	   <td>
+	   <a class="btn btn-primary" href="/supir/{{$data->id}}">Show</a>
+	   </td>
+	   <td>
+	   <form action="{{route('supir.destroy',$data->id)}}" method="post">
+	   <input type="hidden" name="_method" value="DELETE">
+	   <input type="hidden" name="_token">
+	   <input type="submit" value="DELETE" class="btn btn-danger">
+	   @endforeach
+	   {{csrf_field()}}
+	   </form>
+	   </td>
+	   </tr>
+	   </tbody>
+	   </table>
+	   </div>
 </div>
-@endsection
-
-@section('scripts')
-{!! $html->scripts() !!}
+</div>
 @endsection

@@ -42,7 +42,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                         <li><a href="/konsumen">Konsumen</a></li>
+                         <li><a href="{{ route('konsumen.index') }}">Konsumen</a></li>
                          <li><a href="{{ route('mobil.index') }}">Mobil</a></li>
                          <li><a href="{{ route('supir.index') }}">Supir</a></li>
                         @if (Auth::guest())

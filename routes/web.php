@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']], function() {
+Route::group(['middleware'=>['auth']], function() {
 	Route::resource('konsumen','KonsumenController');
 	Route::resource('mobil','MobilController');
 	Route::resource('supir','SupirController');

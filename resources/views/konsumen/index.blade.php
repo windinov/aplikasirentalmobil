@@ -4,7 +4,7 @@
 	<center><h1>Data Konsumen</h1></center>
 	<div class="panel panel-primary">
 	<div class="panel-heading">Data konsumen
-	<div class="panel-title pull-right"><a href="/konsumen/create">Tambah Data</a></div>
+	<div class="panel-title pull-right"><a href="{{ route('konsumen.create') }}">Tambah Data</a></div>
 	</div>
 <div class="panel-body">
 	<table class="table">
@@ -21,13 +21,14 @@
 	<tbody>
 	@foreach($konsumen as $data)
 	<tr>
-	<td>{{$data->nama_konsumen}}</td>
-    <td>{{$data->jenis_kelamin}}</td>
+	<td>{{$data->nama}}</td>
+    <td>{{$data->jk}}</td>
 	<td>{{$data->no_hp}}</td>
 	<td>{{$data->no_identitas}}</td>
 	<td>{{$data->alamat}}</td>
 	
 	</td>
+	   
 	   <td>
 	   <a class="btn btn-warning" href="/konsumen/{{$data->id}}/edit">Edit</a>
 	   </td>
