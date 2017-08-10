@@ -64,6 +64,8 @@ class MobilController extends Controller
     public function show($id)
     {
         //
+        $mobil = mobil::findOrFail($id);
+        return view('mobil.show', compact('mobil'));
     }
 
     /**
@@ -75,6 +77,8 @@ class MobilController extends Controller
     public function edit($id)
     {
         //
+        $mobil = mobil::findOrFail($id);
+        return view('mobil.edit', compact('mobil'));
     }
 
     /**
@@ -87,6 +91,21 @@ class MobilController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $mobil = mobil::findOrFail($id);
+        $mobil->merk = $request->merk;
+        $mobil->palt_no = $request->palt_no;
+        $mobil->spesifikasi = $request->spesifikasi;
+        $mobil->harga_sewa = $request->Harga_sewa;
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $filename = str_random(6). '.'.$file->getClientOriginalName();
+            $desinationPath = public_path().DIRECTORY_SEPARATOR.'img';
+            $uploadSucces = $file->move($desinationPath, $filename);
+            $mobil->foto = $filename;
+         }
+        $mobil->save();
+        return redirect('mobil');
+
     }
 
     /**
@@ -98,5 +117,8 @@ class MobilController extends Controller
     public function destroy($id)
     {
         //
+        $mobil = mobil::findOrFail($id);
+        $mobil->delete();
+        return redirect('mobil');
     }
 }

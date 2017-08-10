@@ -23,9 +23,9 @@
 	<tbody>
 	@foreach($Supir as $data)
 	<tr>
-	<td>{{$data->foto}}</td>
+	<td><img src="{{asset('/img/'.$data->foto. '')}}" width="70" height="70"></td>
     <td>{{$data->nama}}</td>
-	<td>{{$data->jenis_kelamin}}</td>
+	<td>{{$data->jk}}</td>
 	<td>{{$data->no_identitas}}</td>
 	<td>{{$data->alamat}}</td>
 	<td>{{$data->no_hp}}</td>
