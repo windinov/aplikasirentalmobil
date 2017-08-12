@@ -4,7 +4,7 @@
 	<center><h1>Data Mobil</h1></center>
 	<div class="panel panel-primary">
 	<div class="panel-heading">Data mobil
-	<div class="panel-title pull-right"><a href="{{ route('mobil.create') }}">Tambah Data</a></div>
+	<div class="panel-title pull-right"><a href="{{ url('mobil/create') }}">Tambah Data</a></div>
 	</div>
 <div class="panel-body">
 	<table class="table">

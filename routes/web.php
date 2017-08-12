@@ -23,4 +23,5 @@ Route::group(['middleware'=>['auth']], function() {
 	Route::resource('konsumen','KonsumenController');
 	Route::resource('mobil','MobilController');
 	Route::resource('supir','SupirController');
+	Route::resource('sewa','sewaController');
 });

@@ -4,7 +4,7 @@
 	<center><h1>Data Supir</h1></center>
 	<div class="panel panel-primary">
 	<div class="panel-heading">Data supir
-	<div class="panel-title pull-right"><a href="/supir/create">Tambah Data</a></div>
+	<div class="panel-title pull-right"><a href="{{ url('supir/create')}}">Tambah Data</a></div>
 	</div>
 <div class="panel-body">
 	<table class="table">

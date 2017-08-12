@@ -17,12 +17,12 @@ class CreateSewasTable extends Migration
             $table->increments('id');
             $table->date('tgl_sewa');
             $table->integer('jmlh_hari');
-            $table->integer('konsumen_id')->unsigned;
+            $table->integer('konsumen_id')->unsigned();
             $table->integer('total_sewa');
             $table->foreign('konsumen_id')->references('id')->on('konsumens')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('mobil_id')->unsigned;
+            $table->integer('mobil_id')->unsigned();
             $table->foreign('mobil_id')->references('id')->on('mobils')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('supir_id')->unsigned;
+            $table->integer('supir_id')->unsigned();
             $table->foreign('supir_id')->references('id')->on('supirs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

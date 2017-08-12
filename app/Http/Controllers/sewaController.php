@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\sewa;
+use App\konsumen;
+use App\mobil;
+use App\supir;
 
 class sewaController extends Controller
 {
@@ -13,7 +17,8 @@ class sewaController extends Controller
      */
     public function index()
     {
-        //
+        $sewa= sewa::with('mobil','supir','konsumen')->get();
+        return view('sewa.index', compact('sewa','supir','konsumen'));
     }
 
     /**
@@ -23,7 +28,10 @@ class sewaController extends Controller
      */
     public function create()
     {
-        //
+        $mobil=Mobil::all();
+        $supir=Supir::all();
+        $konsumen =konsumen::all();
+        return view('sewa.create', compact('mobil','supir','konsumen'));
     }
 
     /**
@@ -34,7 +42,25 @@ class sewaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaksi = $request->all();
+
+        $mobil = mobil::where('id', $transaksi['mobil_id'])->first();
+        // dd($mobil);
+        $hargasewa = $mobil->harga_sewa;
+        // dd($hargasewa);
+        $supir = supir::where('id', $transaksi['id_supir'])->first();
+
+        $konsumen = new sewa;
+        $konsumen->tgl_sewa=$request->tgl_sewa;
+        $konsumen->jmlh_hari=$request->jmlh_hari;
+        $konsumen->total_sewa= ($hargasewa = $request->jmlh_hari) + $supir->harga_sewa;
+
+        $konsumen->konsumen_id=$request->id_konsumen;
+        $konsumen->mobil_id=$request->mobil_id;
+        $konsumen->supir_id=$request->id_supir;
+        //dd($konsumen);
+        $konsumen->save();
+        return redirect('sewa');
     }
 
     /**

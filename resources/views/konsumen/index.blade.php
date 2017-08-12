@@ -4,7 +4,7 @@
 	<center><h1>Data Konsumen</h1></center>
 	<div class="panel panel-primary">
 	<div class="panel-heading">Data konsumen
-	<div class="panel-title pull-right"><a href="{{ route('konsumen.create') }}">Tambah Data</a></div>
+	<div class="panel-title pull-right"><a href="{{ url('konsumen/create') }}">Tambah Data</a></div>
 	</div>
 <div class="panel-body">
 	<table class="table">
