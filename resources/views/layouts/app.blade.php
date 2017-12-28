@@ -44,10 +44,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                         <li><a href="/konsumen">Konsumen</a></li>
+                         <l><a href="/supir">Supir</a></li>
+                         <li>i><a href="/konsumen">Konsumen</a></li>
                          <li><a href="/mobil">Mobil</a></li>
-                         <li><a href="/supir">Supir</a></li>
-                         <li><a href="/sewa">Sewa</a></li>
+                         <li<a href="/sewa">Sewa</a></li>
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             

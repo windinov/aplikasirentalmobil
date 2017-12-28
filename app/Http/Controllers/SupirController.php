@@ -121,5 +121,8 @@ class SupirController extends Controller
     public function destroy($id)
     {
         //
+        $supir = supir::findOrFail($id);
+        $supir->delete();
+        return redirect('supir');
     }
 }
