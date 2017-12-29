@@ -39,15 +39,16 @@
 	   <a class="btn btn-primary" href="/supir/{{$data->id}}">Show</a>
 	   </td>
 	   <td>
-	   <form action="{{route('supir.destroy',$data->id)}}" method="post">
+	  <form action="{{route('supir.destroy',$data->id)}}" method="post">
+	   
 	   <input type="hidden" name="_method" value="DELETE">
 	   <input type="hidden" name="_token">
 	   <input type="submit" value="DELETE" class="btn btn-danger">
-	   @endforeach
 	   {{csrf_field()}}
 	   </form>
 	   </td>
 	   </tr>
+	   @endforeach
 	   </tbody>
 	   </table>
 	   </div>
